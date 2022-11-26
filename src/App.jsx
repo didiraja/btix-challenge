@@ -1,44 +1,81 @@
 import { useState, useEffect } from 'react'
 import Request from "./classes/Request.js";
-import Comments from "./components/Comments.jsx";
+import Post from "./components/Post.jsx";
+import User from "./components/User.jsx";
 import './App.css'
 
 function App() {
 
-  const [posts, setPosts] = useState([])
+  const navbar = ['Posts', 'Users'];
+  const [active, setActive] = useState('Users');
+  const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
 
-    const getPosts = async () => {
-      const result = await Request.GetPosts();
+    if (active === 'Posts') {
+      const getPosts = async () => {
+        const result = await Request.GetPosts();
 
-      return setPosts(() => result.data.slice(0, 7))
-    };
+        return setPosts(() => result.data.slice(0, 7))
+      };
 
-    getPosts();
+      getPosts();
+    }
 
-  }, []);
+    if (active === 'Users') {
+      const getUsers = async () => {
+        const result = await Request.GetUsers();
+
+        return setUsers(() => result.data.slice(0, 7))
+      };
+
+      getUsers();
+    }
+
+  }, [active]);
 
   return (
     <div className="App">
-      <p className="text-5xl font-bold mb-8">Btix posts</p>
 
-      <div className="post-list border-2 border-slate-400 min-h-[100px]">
-        {
-          posts ? posts.map((item) => {
-            return (
-              <div className="post" key={item.id}>
-                <p className="text-xl">{item.title}</p>
-                <p className="text-sm">User: {item.userId}</p>
-                <p className="text-lg">{item.body}</p>
+      <div className="header mb-8">
+        <p className="text-5xl font-bold mb-5">Btix App</p>
 
-                <Comments id={item.id} />
-              </div>
-            )
-          }) : null
-
-        }
+        <div className="button-wrapper text-xl">
+          {
+            navbar.map((label) => {
+              return (
+                <button key={label} className={label === active ? 'border-2 border-indigo-600' : null}
+                  onClick={() => setActive(label)}>
+                  {label}
+                </button>
+              )
+            })
+          }
+        </div>
       </div>
+
+      <div className="content-list border-2 border-slate-400 min-h-[100px]">
+        {
+          active === 'Posts' ? (
+            posts ? posts.map((item) => <Post key={item.id} {...item} />) : null
+          )
+
+            : null
+        }
+
+        {
+          active === 'Users' ? (
+            users ? users.map((item) => <User key={item.id} {...item} />) : null
+          )
+
+            : null
+        }
+
+      </div>
+
+
+
 
     </div>
   )

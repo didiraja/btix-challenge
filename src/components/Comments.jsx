@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Request from "../classes/Request.js";
 
 function Comments({ id }) {
-  const [fetchDone, setDone] = useState(false);
   const [comment, setComment] = useState([]);
 
   useEffect(() => {

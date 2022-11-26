@@ -13,9 +13,13 @@ class Request {
     return axios.get(`${this.host}/posts/${postID}/comments`);
   }
 
-  GetUsers() {}
+  GetUsers() {
+    return axios.get(`${this.host}/users/`);
+  }
 
-  UserDetails() {}
+  UserDetails(userID) {
+    return axios.get(`${this.host}/users/${userID}`);
+  }
 }
 
 export default new Request();
