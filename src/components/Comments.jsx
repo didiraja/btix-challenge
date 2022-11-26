@@ -16,15 +16,16 @@ function Comments({ id }) {
   }, []);
 
   return (
-    <div className="comment-list my-5 border border-slate-200">
+    <div className="comment-list my-5 border border-slate-200 ml-[10%]">
       {comment
         ? comment.map((item) => {
           return (
-            <div className="comment text-sm" key={item.id}>
-              <p>
-                {item.name} ({item.email})
-              </p>
-              <p>{item.body}</p>
+            <div className="comment p-3" key={item.id}>
+              <div>
+                <p className="text-md font-bold inline">{item.name}</p>
+                <p className="text-sm italic inline ml-1">({item.email})</p>
+              </div>
+              <p className="text-sm ml-3">{item.body}</p>
             </div>
           );
         })

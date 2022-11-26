@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
 
-      <div className="header mb-8">
+      <div className="header mb-8 text-center">
         <p className="text-5xl font-bold mb-5">Btix App</p>
 
         <div className="button-wrapper text-xl">

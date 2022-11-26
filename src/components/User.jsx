@@ -1,11 +1,17 @@
 function User(prop) {
 
   return (
-    <div className="user text-sm">
-      <p>{prop.username} ({prop.email})</p>
-      <p>{prop.name}</p>
-      <p>{prop.website}</p>
-      <p>{prop.company.name}</p>
+    <div className="user text-sm p-3 mb-3">
+      <div>
+        <p className="text-md font-bold inline">{prop.username}</p>
+        <p className="text-sm italic inline ml-1">({prop.email})</p>
+      </div>
+
+      <div className="ml-3">
+        <p>Name: {prop.name}</p>
+        <p>Site: {prop.website}</p>
+        <p>Company: {prop.company.name}</p>
+      </div>
     </div>
   );
 }
