@@ -9,7 +9,9 @@ class Request {
     return axios.get(`${this.host}/posts`);
   }
 
-  GetComments() {}
+  GetComments(postID) {
+    return axios.get(`${this.host}/posts/${postID}/comments`);
+  }
 
   GetUsers() {}
 

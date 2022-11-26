@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Request from "./classes/Request.js";
+import Comments from "./components/Comments.jsx";
 import './App.css'
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
                 <p className="text-xl">{item.title}</p>
                 <p className="text-sm">User: {item.userId}</p>
                 <p className="text-lg">{item.body}</p>
+
+                <Comments id={item.id} />
               </div>
             )
           }) : null
