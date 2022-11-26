@@ -7,7 +7,7 @@ import './App.css'
 function App() {
 
   const navbar = ['Posts', 'Users'];
-  const [active, setActive] = useState('Users');
+  const [active, setActive] = useState('Posts');
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -63,7 +63,6 @@ function App() {
 
             : null
         }
-
         {
           active === 'Users' ? (
             users ? users.map((item) => <User key={item.id} {...item} />) : null
@@ -71,12 +70,7 @@ function App() {
 
             : null
         }
-
       </div>
-
-
-
-
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import { useState, useMemo } from "react";
+import Requests from "../classes/Request.js";
 import Comments from "./Comments.jsx";
 
 function Post(prop) {
@@ -6,7 +8,9 @@ function Post(prop) {
     <div className="post capitalize p-3">
       <div>
         <p className="text-xl font-bold inline">{prop.title}</p>
-        <p className="text-sm ml-3 inline">by {prop.userId}</p>
+        <p className="text-sm ml-3 inline">by <NameUser id={prop.userId} /></p>
+
+
       </div>
 
       <p className="text-lg normal-case">{prop.body}</p>
@@ -14,6 +18,26 @@ function Post(prop) {
       <Comments id={prop.id} />
     </div>
   );
+}
+
+function NameUser({ id }) {
+
+  const [name, setName] = useState('Fulano');
+
+  useMemo(() => {
+
+    const getNamefromUser = async () => {
+      const result = await Requests.UserDetails(id)
+
+      setName(() => result.data.name)
+    }
+
+    getNamefromUser();
+
+  }, [])
+
+
+  return name;
 }
 
 export default Post;
