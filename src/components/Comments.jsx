@@ -16,7 +16,7 @@ function Comments({ id }) {
   }, []);
 
   return (
-    <div className="comment-list my-5 border border-slate-200 ml-[10%]">
+    <div className="comment-list my-5 border border-slate-400 ml-[10%]">
       {comment
         ? comment.map((item) => {
           return (
