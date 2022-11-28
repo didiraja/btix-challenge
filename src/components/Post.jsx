@@ -8,9 +8,7 @@ function Post(prop) {
     <div className="post capitalize p-3">
       <div>
         <p className="text-xl font-bold inline">{prop.title}</p>
-        <p className="text-sm ml-3 inline">by <NameUser id={prop.userId} /></p>
-
-
+        {prop.userId ? <p className="text-sm ml-3 inline">by <NameUser id={prop.userId} /></p> : null}
       </div>
 
       <p className="text-lg normal-case">{prop.body}</p>
@@ -27,9 +25,15 @@ function NameUser({ id }) {
   useMemo(() => {
 
     const getNamefromUser = async () => {
-      const result = await Requests.UserDetails(id)
 
-      setName(() => result.data.name)
+      try {
+        const result = await Requests.UserDetails(id)
+
+        setName(() => result.data.name)
+      } catch (_) {
+        // console.log(_)
+      }
+
     }
 
     getNamefromUser();

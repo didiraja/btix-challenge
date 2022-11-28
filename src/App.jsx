@@ -1,37 +1,42 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ContentContext } from './context.jsx';
 import Request from "./classes/Request.js";
-import Post from "./components/Post.jsx";
-import User from "./components/User.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Content from "./components/Content.jsx";
 import './App.css'
 
 function App() {
 
-  const navbar = ['Posts', 'Users'];
-  const [active, setActive] = useState('Posts');
-  const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
+  // tip: you are importing from Context, NOT USESTATE, so import with {}
+  const { navbar, active, setLoading, setContent } = useContext(ContentContext);
 
   useEffect(() => {
 
-    if (active === 'Posts') {
-      const getPosts = async () => {
-        const result = await Request.GetPosts();
+    setLoading(true);
 
-        return setPosts(() => result.data.slice(0, 7))
-      };
+    // if (active === 'Posts') {
+    //   const getPosts = async () => {
+    //     const result = await Request.GetPosts();
 
-      getPosts();
-    }
+    //     return setContent(() => result.data.slice(0, 7))
+    //   };
 
-    if (active === 'Users') {
-      const getUsers = async () => {
-        const result = await Request.GetUsers();
+    //   getPosts();
+    // }
 
-        return setUsers(() => result.data.slice(0, 7))
-      };
+    // if (active === 'Users') {
+    //   const getUsers = async () => {
+    //     const result = await Request.GetUsers();
 
-      getUsers();
-    }
+    //     return setContent(() => result.data.slice(0, 7))
+    //   };
+
+    //   getUsers();
+    // }
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000)
 
   }, [active]);
 
@@ -41,36 +46,10 @@ function App() {
       <div className="header mb-8 text-center">
         <p className="text-5xl font-bold mb-5">Btix App</p>
 
-        <div className="button-wrapper text-xl">
-          {
-            navbar.map((label) => {
-              return (
-                <button key={label} className={label === active ? 'border-2 border-indigo-600' : null}
-                  onClick={() => setActive(label)}>
-                  {label}
-                </button>
-              )
-            })
-          }
-        </div>
+        <Navbar sections={navbar} />
       </div>
 
-      <div className="content-list border-2 border-slate-400 min-h-[100px]">
-        {
-          active === 'Posts' ? (
-            posts ? posts.map((item) => <Post key={item.id} {...item} />) : null
-          )
-
-            : null
-        }
-        {
-          active === 'Users' ? (
-            users ? users.map((item) => <User key={item.id} {...item} />) : null
-          )
-
-            : null
-        }
-      </div>
+      <Content />
     </div>
   )
 }
