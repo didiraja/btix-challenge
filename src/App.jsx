@@ -3,7 +3,7 @@ import { ContentContext } from './context.jsx';
 import Request from "./classes/Request.js";
 import Navbar from "./components/Navbar.jsx";
 import Content from "./components/Content.jsx";
-import './App.css'
+import './App.pcss'
 
 function App() {
 

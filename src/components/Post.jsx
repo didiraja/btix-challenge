@@ -5,7 +5,7 @@ import Comments from "./Comments.jsx";
 function Post(prop) {
 
   return (
-    <div className="post capitalize p-3">
+    <div className="post-box capitalize p-5 bg-slate-800 rounded-xl mb-5">
       <div>
         <p className="text-xl font-bold inline">{prop.title}</p>
         {prop.userId ? <p className="text-sm ml-3 inline">by <NameUser id={prop.userId} /></p> : null}

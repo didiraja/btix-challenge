@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* background-color: rgb(163 163 163); */
+}
+
+.button-wrapper button ~ button {
+  margin-left: 20px;
+}
+
+button.active {
+  /* Created with https://www.css-gradient.com */
+  background: #776bce;
+  background: -webkit-linear-gradient(bottom, #776bce, #2253ad);
+  background: -moz-linear-gradient(bottom, #776bce, #2253ad);
+  background: linear-gradient(to top, #776bce, #2253ad);
+}
+
+.post-box {
+  /* box-shadow: 0px 0px 15px 0px rgba(7, 127, 255, 0.1); */
+}
