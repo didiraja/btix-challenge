@@ -10,3 +10,9 @@
   - Context API
 - Tailwind CSS
 - Responsividade
+
+## Instruções
+- Clone o repositório
+- Instale as dependências `npm i || yarn`
+- Rode o app em modo de desenvolvimento `npm run dev || yarn dev`
+
