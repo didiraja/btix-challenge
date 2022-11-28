@@ -14,29 +14,27 @@ function App() {
 
     setLoading(true);
 
-    // if (active === 'Posts') {
-    //   const getPosts = async () => {
-    //     const result = await Request.GetPosts();
+    if (active === 'Posts') {
+      const getPosts = async () => {
+        const result = await Request.GetPosts();
 
-    //     return setContent(() => result.data.slice(0, 7))
-    //   };
+        return setContent(() => result.data.slice(0, 7))
+      };
 
-    //   getPosts();
-    // }
+      getPosts();
+    }
 
-    // if (active === 'Users') {
-    //   const getUsers = async () => {
-    //     const result = await Request.GetUsers();
+    if (active === 'Users') {
+      const getUsers = async () => {
+        const result = await Request.GetUsers();
 
-    //     return setContent(() => result.data.slice(0, 7))
-    //   };
+        return setContent(() => result.data.slice(0, 7))
+      };
 
-    //   getUsers();
-    // }
+      getUsers();
+    }
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000)
+    setLoading(false);
 
   }, [active]);
 

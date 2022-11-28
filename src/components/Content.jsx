@@ -14,7 +14,7 @@ function Content() {
   if (!content) return null;
 
   return (
-    <div className="content-list border-2 border-slate-400 min-h-[100px]">
+    <div className="content-list border-2 border-slate-400">
       {
         (active === 'Posts') ? content.map((item) => <Post key={item.id} {...item} />) : null
       }
