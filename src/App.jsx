@@ -39,7 +39,7 @@ function App() {
   }, [active]);
 
   return (
-    <div className="App">
+    <div className="App mx-auto w-full md:max-w-[800px]">
 
       <div className="header mb-8 text-center">
         <p className="text-5xl font-bold mb-5">Btix App</p>

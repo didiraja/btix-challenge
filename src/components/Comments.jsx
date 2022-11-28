@@ -22,8 +22,8 @@ function Comments({ id }) {
           return (
             <div className="comment p-3" key={item.id}>
               <div>
-                <p className="text-md font-bold inline">{item.name}</p>
-                <p className="text-sm italic inline ml-1">({item.email})</p>
+                <p className="text-md font-bold">{item.name}</p>
+                <p className="text-sm italic ml-1">({item.email})</p>
               </div>
               <p className="text-sm ml-3">{item.body}</p>
             </div>

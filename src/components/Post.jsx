@@ -7,11 +7,11 @@ function Post(prop) {
   return (
     <div className="post-box capitalize p-5 bg-slate-800 rounded-xl mb-5">
       <div>
-        <p className="text-xl font-bold inline">{prop.title}</p>
-        {prop.userId ? <p className="text-sm ml-3 inline">by <NameUser id={prop.userId} /></p> : null}
+        <p className="text-2xl font-bold">{prop.title}</p>
+        {prop.userId ? <p className="text-sm normal-case text-right">by <NameUser id={prop.userId} /></p> : null}
       </div>
 
-      <p className="text-lg normal-case">{prop.body}</p>
+      <p className="text-lg normal-case mt-5">{prop.body}</p>
 
       <Comments id={prop.id} />
     </div>
