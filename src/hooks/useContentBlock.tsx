@@ -1,32 +1,28 @@
-import { useEffect, useContext } from 'react'
-import { ContentContext } from '../context.jsx';
-import Request from '../classes/Request.js'
+import { useEffect, useContext } from "react";
+import { ContentContext } from "../context.js";
+import Request from "../classes/Request.js";
 
 export default function useContentBlock() {
-
   // tip: you are importing from Context, NOT USESTATE, so import with {}
   const { active, setContent, setLoading } = useContext(ContentContext);
 
   function menuHandler(navbarlabel) {
-
     const method = `Get${navbarlabel}`;
 
     const getContent = async () => {
       const result = await Request[method]();
 
-      return setContent(() => result.data.slice(0, 7))
+      return setContent(() => result.data.slice(0, 7));
     };
 
     getContent();
   }
 
   useEffect(() => {
+    setLoading(true);
 
-    setLoading(true)
+    menuHandler(active);
 
-    menuHandler(active)
-
-    setLoading(false)
-
+    setLoading(false);
   }, [active]);
 }

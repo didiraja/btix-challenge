@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { ContentContext } from '../context.jsx';
+import { ContentContext } from '../context.js';
 import Post from "./Post.jsx";
 import User from "./User.jsx";
 
