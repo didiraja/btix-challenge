@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { ContentContext } from './context.jsx';
-import Request from "./classes/Request.js";
+import useContentBlock from "./hooks/useContentBlock.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Content from "./components/Content.jsx";
 import './App.pcss'
@@ -8,35 +8,9 @@ import './App.pcss'
 function App() {
 
   // tip: you are importing from Context, NOT USESTATE, so import with {}
-  const { navbar, active, setLoading, setContent } = useContext(ContentContext);
+  const { navbar } = useContext(ContentContext);
 
-  useEffect(() => {
-
-    setLoading(true);
-
-    if (active === 'Posts') {
-      const getPosts = async () => {
-        const result = await Request.GetPosts();
-
-        return setContent(() => result.data.slice(0, 7))
-      };
-
-      getPosts();
-    }
-
-    if (active === 'Users') {
-      const getUsers = async () => {
-        const result = await Request.GetUsers();
-
-        return setContent(() => result.data.slice(0, 7))
-      };
-
-      getUsers();
-    }
-
-    setLoading(false);
-
-  }, [active]);
+  useContentBlock();
 
   return (
     <div className="App mx-auto w-full md:max-w-[800px]">

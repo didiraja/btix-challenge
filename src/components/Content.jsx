@@ -7,11 +7,15 @@ function Content() {
 
   const { active, content, isLoading } = useContext(ContentContext);
 
-  if (isLoading) return (
-    <p className="text-center text-2xl italic">Carregando...</p>
-  );
+  if (isLoading) {
+    return (
+      <p className="text-center text-2xl italic">Carregando...</p>
+    );
+  }
 
-  if (!content) return null;
+  if (!content) {
+    return null
+  };
 
   return (
     <div className="content-list">
