@@ -1,6 +1,10 @@
 import axios from "axios";
 
+export type RequestMethod = 'GetPosts' | 'GetComments' | 'GetUsers';
+
 class Request {
+  host: string;
+
   constructor() {
     this.host = `https://jsonplaceholder.typicode.com`;
   }
@@ -9,16 +13,16 @@ class Request {
     return axios.get(`${this.host}/posts`);
   }
 
-  GetComments(postID) {
-    return axios.get(`${this.host}/posts/${postID}/comments`);
+  GetComments(id?: number) {
+    return axios.get(`${this.host}/posts/${id}/comments`);
   }
 
   GetUsers() {
     return axios.get(`${this.host}/users/`);
   }
 
-  UserDetails(userID) {
-    return axios.get(`${this.host}/users/${userID}`);
+  UserDetails(id?: number) {
+    return axios.get(`${this.host}/users/${id}`);
   }
 }
 

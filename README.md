@@ -10,6 +10,8 @@
   - Context API
 - Tailwind CSS
 - Responsividade
+- Typescript
+- Jest
 
 ## Instruções
 - Clone o repositório
