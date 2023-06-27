@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ContentContext } from '../context.js';
-import Post from "./Post.jsx";
-import User from "./User.jsx";
+import Post from "./Post.js";
+import User from "./User.js";
 
 function Content() {
 

@@ -1,41 +1,39 @@
-import React, { createContext, useState } from "react";
+import { ReactNode, Dispatch, SetStateAction, createContext, useState } from "react";
 
-type CtxObj = {
+type IContext = {
   navbar: string[];
   isLoading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  content: {}[];
-  setContent: React.Dispatch<React.SetStateAction<never[]>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  content: never[];
+  setContent: Dispatch<SetStateAction<never[]>>;
   active: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
+  setActive: Dispatch<SetStateAction<string>>;
+}
+const [isLoading, setLoading] = useState(false);
+const [content, setContent] = useState([]);
+const [active, setActive] = useState("Posts");
+
+const INITIAL_DATA = {
+  navbar: ["Posts", "Users"],
+  isLoading,
+  setLoading,
+  content,
+  setContent,
+  active,
+  setActive,
 };
 
-export const ContentContext: CtxObj = createContext({
+export const ContentContext = createContext<IContext>({
   navbar: [],
   isLoading: false,
-  setLoading: undefined,
+  setLoading: () => { },
   content: [],
-  setContent: undefined,
-  active: "",
-  setActive: undefined,
+  setContent: () => { },
+  active: '',
+  setActive: () => { },
 });
 
-export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [isLoading, setLoading] = useState(false);
-  const [content, setContent] = useState([]);
-  const [active, setActive] = useState("Posts");
-
-  const INITIAL_DATA: CtxObj = {
-    navbar: ["Posts", "Users"],
-    isLoading,
-    setLoading,
-    content,
-    setContent,
-    active,
-    setActive,
-  };
+export const ContentProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ContentContext.Provider value={INITIAL_DATA}>
