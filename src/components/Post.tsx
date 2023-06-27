@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Requests from "../classes/Request";
 import Comments from "./Comments";
 

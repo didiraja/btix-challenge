@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ContentContext } from "./context";
 import useContentBlock from "./hooks/useContentBlock";
 import Navbar from "./components/Navbar";

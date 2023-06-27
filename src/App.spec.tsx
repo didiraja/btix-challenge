@@ -7,3 +7,4 @@ describe('App', () => {
     render(<App />);
   });
 });
+

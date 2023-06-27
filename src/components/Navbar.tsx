@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ContentContext } from "../context";
 
 function Navbar({ sections }: Record<"sections", string[]>) {

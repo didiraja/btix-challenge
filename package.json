@@ -5,10 +5,10 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "types": "tsc",
+    "build": "npm run types && vite build",
     "preview": "vite preview",
-    "test": "jest",
-    "types": "tsc"
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",

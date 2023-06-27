@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Request from "../classes/Request";
 import { IUser } from "./User";
 import { IPost } from "./Post";

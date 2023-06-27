@@ -4,7 +4,7 @@ type IContext = {
   navbar: string[];
   isLoading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
-  content: never[];
+  content: any[];
   setContent: Dispatch<SetStateAction<never[]>>;
   active: string;
   setActive: Dispatch<SetStateAction<string>>;

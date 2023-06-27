@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ContentContext } from '../context';
 import Post, { IPost } from "./Post";
 import User, { IUser } from "./User";
