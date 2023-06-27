@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContentContext } from "../context.js";
+import { ContentContext } from "../context";
 
 function Navbar({ sections }: Record<"sections", string[]>) {
   const { active, setActive } = useContext(ContentContext);

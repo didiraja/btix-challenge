@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ContentContext } from "./context";
-import useContentBlock from "./hooks/useContentBlock.js";
+import useContentBlock from "./hooks/useContentBlock";
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
 import "./App.pcss";
