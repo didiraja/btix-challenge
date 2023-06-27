@@ -1,4 +1,4 @@
-import { ReactNode, Dispatch, SetStateAction, createContext, useState } from "react";
+import React, { ReactNode, Dispatch, SetStateAction, createContext, useState } from "react";
 
 type IContext = {
   navbar: string[];
@@ -9,19 +9,6 @@ type IContext = {
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
 }
-const [isLoading, setLoading] = useState(false);
-const [content, setContent] = useState([]);
-const [active, setActive] = useState("Posts");
-
-const INITIAL_DATA = {
-  navbar: ["Posts", "Users"],
-  isLoading,
-  setLoading,
-  content,
-  setContent,
-  active,
-  setActive,
-};
 
 export const ContentContext = createContext<IContext>({
   navbar: [],
@@ -34,6 +21,20 @@ export const ContentContext = createContext<IContext>({
 });
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
+
+  const [isLoading, setLoading] = useState(false);
+  const [content, setContent] = useState([]);
+  const [active, setActive] = useState("Posts");
+
+  const INITIAL_DATA = {
+    navbar: ["Posts", "Users"],
+    isLoading,
+    setLoading,
+    content,
+    setContent,
+    active,
+    setActive,
+  };
 
   return (
     <ContentContext.Provider value={INITIAL_DATA}>
