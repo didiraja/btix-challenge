@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
-import Request from "../classes/Request.js";
+import Request from "../classes/Request";
+import { IUser } from "./User";
+import { IPost } from "./Post";
 
-function Comments({ id }) {
+type IComment = IUser & IPost
+
+function Comments({ id }: { id: number }) {
   const [comment, setComment] = useState([]);
 
   useEffect(() => {
@@ -18,7 +22,7 @@ function Comments({ id }) {
   return (
     <div className="comment-list my-5 bg-slate-600 ml-[10%]">
       {comment
-        ? comment.map((item) => {
+        ? comment.map((item: IComment) => {
           return (
             <div className="comment p-3" key={item.id}>
               <div>

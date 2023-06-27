@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ContentContext } from '../context.js';
-import Post from "./Post.js";
-import User from "./User.js";
+import { ContentContext } from '../context';
+import Post, { IPost } from "./Post";
+import User, { IUser } from "./User";
 
 function Content() {
 
@@ -20,11 +20,11 @@ function Content() {
   return (
     <div className="content-list">
       {
-        (active === 'Posts') ? content.map((item) => <Post key={item.id} {...item} />) : null
+        (active === 'Posts') ? content.map((item: IPost) => <Post key={item.id} {...item} />) : null
       }
 
       {
-        (active === 'Users') ? content.map((item) => <User key={item.id} {...item} />) : null
+        (active === 'Users') ? content.map((item: IUser) => <User key={item.id} {...item} />) : null
       }
     </div>
   )

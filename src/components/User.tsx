@@ -1,4 +1,16 @@
-function User(prop) {
+export interface IUser {
+  id: number;
+  userId: number;
+  username: string;
+  email: string;
+  name: string;
+  website: string;
+  company: {
+    name: string
+  };
+}
+
+function User(prop: IUser) {
 
   if (!prop) return null;
 
